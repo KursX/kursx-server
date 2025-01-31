@@ -1,0 +1,22 @@
+[versions]
+kotlin = "2.1.0"
+ktor = "3.0.3"
+exposed = "0.58.0"
+postgresql = "42.7.2"
+kotlin-serialization = "1.7.3"
+
+[libraries]
+ktor-server-servlet = { module = "io.ktor:ktor-server-servlet-jakarta", version.ref = "ktor" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
+kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json-io", version.ref = "kotlin-serialization" }
+
+[bundles]
+postgres = ["postgresql", "exposed-core", "exposed-jdbc", "exposed-dao"]
+
+[plugins]
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
